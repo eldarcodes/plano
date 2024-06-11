@@ -3,6 +3,7 @@ import { Inter as FontSans } from "next/font/google";
 
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/providers/theme-provider";
+import { ConvexProvider } from "@/providers/convex-provider";
 
 import "@/styles/globals.css";
 
@@ -50,7 +51,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <ConvexProvider>{children}</ConvexProvider>
         </ThemeProvider>
       </body>
     </html>
