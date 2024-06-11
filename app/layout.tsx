@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/providers/theme-provider";
 
 import "@/styles/globals.css";
 
@@ -18,13 +19,13 @@ export const metadata: Metadata = {
     icon: [
       {
         media: "(prefers-color-scheme: light)",
-        url: "/images/icon-light.png",
-        href: "/images/icon-light.png",
+        url: "/images/icon-light.svg",
+        href: "/images/icon-light.svg",
       },
       {
         media: "(prefers-color-scheme: dark)",
-        url: "/images/icon.png",
-        href: "/images/icon-dark.png",
+        url: "/images/icon.svg",
+        href: "/images/icon-dark.svg",
       },
     ],
   },
@@ -43,7 +44,14 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
