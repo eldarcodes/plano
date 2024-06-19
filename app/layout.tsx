@@ -4,6 +4,7 @@ import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { ConvexProvider } from "@/providers/convex-provider";
+import { ToastProvider } from "@/providers/toast-provider";
 
 import "@/styles/globals.css";
 
@@ -45,6 +46,8 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
+        <ToastProvider />
+
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
