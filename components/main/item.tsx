@@ -188,8 +188,8 @@ Item.Skeleton = function ItemSkeleton({ level }: { level?: number }) {
       style={{ paddingLeft: levelPadding }}
       className="flex gap-x-2 py-[3px]"
     >
-      <Skeleton className="h-4 w-4" />
-      <Skeleton className="h-4 w-[30px]" />
+      <Skeleton className="h-4 w-4 rounded-sm" />
+      <Skeleton className="h-4 w-[50px]" />
     </div>
   );
 };
