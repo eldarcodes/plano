@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { ConvexProvider } from "@/providers/convex-provider";
 import { ToastProvider } from "@/providers/toast-provider";
+import { ModalProvider } from "@/providers/modal-provider";
 
 import "@/styles/globals.css";
 
@@ -47,6 +48,7 @@ export default function RootLayout({
         )}
       >
         <ToastProvider />
+        <ModalProvider />
 
         <ThemeProvider
           attribute="class"
