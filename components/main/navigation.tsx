@@ -23,6 +23,7 @@ import { cn } from "@/lib/utils";
 import { UserItem } from "@/components/main/user-item";
 import { Item } from "@/components/main/item";
 import { api } from "@/convex/_generated/api";
+import { DocumentList } from "@/components/main/document-list";
 
 export function Navigation() {
   const pathname = usePathname();
@@ -142,7 +143,9 @@ export function Navigation() {
           <Item onClick={onCreate} label="New page" icon={PlusCircle} />
         </div>
 
-        <div className="mt-4">Items.</div>
+        <div className="mt-4">
+          <DocumentList />
+        </div>
 
         <div
           onMouseDown={onMouseDown}

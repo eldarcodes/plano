@@ -1,7 +1,8 @@
 import { ChevronDown, ChevronRight, type LucideIcon } from "lucide-react";
 
 import { Id } from "@/convex/_generated/dataModel";
-import { cn } from "@/lib/utils";
+import { calculateLevelPadding, cn } from "@/lib/utils";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface ItemProps {
   id?: Id<"documents">;
@@ -32,10 +33,15 @@ export const Item = ({
 }: ItemProps) => {
   const ChevronIcon = expanded ? ChevronDown : ChevronRight;
 
-  let levelPadding = 12;
-  if (level) {
-    levelPadding = level * 12 + 12;
-  }
+  const levelPadding = calculateLevelPadding(level);
+
+  const handleExpand = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    event.stopPropagation();
+
+    if (onExpand) onExpand();
+  };
 
   return (
     <div
@@ -51,7 +57,7 @@ export const Item = ({
         <div
           role="button"
           className="h-full rounded-sm hover:bg-neutral-300 dark:bg-neutral-600 mr-1"
-          onClick={() => {}}
+          onClick={handleExpand}
         >
           <ChevronIcon className="h-4 w-4 shrink-0 text-muted-foreground/50" />
         </div>
@@ -70,6 +76,20 @@ export const Item = ({
           <span className="text-xs">⌘</span>K
         </kbd>
       )}
+    </div>
+  );
+};
+
+Item.Skeleton = function ItemSkeleton({ level }: { level?: number }) {
+  const levelPadding = calculateLevelPadding(level);
+
+  return (
+    <div
+      style={{ paddingLeft: levelPadding }}
+      className="flex gap-x-2 py-[3px]"
+    >
+      <Skeleton className="h-4 w-4" />
+      <Skeleton className="h-4 w-[30px]" />
     </div>
   );
 };
