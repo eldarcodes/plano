@@ -17,7 +17,7 @@ import {
   CommandList,
 } from "@/components/ui/command";
 
-export const SearchCommand = () => {
+export function SearchCommand() {
   const [isMounted, setIsMounted] = useState(false);
 
   const { user } = useUser();
@@ -76,4 +76,4 @@ export const SearchCommand = () => {
       </CommandList>
     </CommandDialog>
   );
-};
+}
