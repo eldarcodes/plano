@@ -47,17 +47,19 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <ToastProvider />
-        <ModalProvider />
+        <ConvexProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <ToastProvider />
+            <ModalProvider />
 
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <ConvexProvider>{children}</ConvexProvider>
-        </ThemeProvider>
+            {children}
+          </ThemeProvider>
+        </ConvexProvider>
       </body>
     </html>
   );
