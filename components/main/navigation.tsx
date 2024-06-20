@@ -10,6 +10,7 @@ import {
 import {
   ChevronsLeft,
   MenuIcon,
+  Plus,
   PlusCircle,
   Search,
   Settings,
@@ -145,6 +146,7 @@ export function Navigation() {
 
         <div className="mt-4">
           <DocumentList />
+          <Item onClick={onCreate} label="Add new page" icon={Plus} />
         </div>
 
         <div
