@@ -33,6 +33,7 @@ export function Banner({ documentId }: BannerProps) {
 
   const onRestore = () => {
     const promise = restore({ id: documentId });
+
     toast.promise(promise, {
       loading: "Restoring note...",
       success: "Note restored!",
