@@ -43,7 +43,7 @@ export function SearchCommand() {
   }, [onOpen]);
 
   const onSelect = (id: string) => {
-    // router.push(`/documents/${id}`);
+    router.push(`/documents/${id}`);
     onClose();
   };
 
