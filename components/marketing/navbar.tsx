@@ -42,7 +42,12 @@ export function Navbar() {
 
         {!isLoading && isAuthenticated && (
           <>
-            <Button variant="ghost" size="sm" asChild>
+            <Button
+              variant="ghost"
+              size="sm"
+              asChild
+              className="md:block hidden"
+            >
               <Link href="/documents">Enter Plano</Link>
             </Button>
 

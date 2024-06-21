@@ -25,7 +25,7 @@ export function TrashBox() {
   });
 
   const onClick = (documentId: string) => {
-    router.push(`/documents/${documentId}`);
+    // router.push(`/documents/${documentId}`);
   };
 
   const onRestore = (
@@ -64,12 +64,12 @@ export function TrashBox() {
 
   return (
     <div className="text-sm">
-      <div className="flex items-center gap-x-1 p-2">
-        <Search className="h-4 w-4" />
+      <div className="relative flex items-center gap-x-1 p-2">
+        <Search className="h-4 w-4 absolute left-4" />
         <Input
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="h-7 px-2 focus-visible:ring-transparent bg-secondary"
+          className="h-7 pl-7 focus-visible:ring-transparent bg-secondary"
           placeholder="Filter by page title..."
         />
       </div>

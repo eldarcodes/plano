@@ -141,7 +141,7 @@ export function Navigation() {
           role="botton"
           onClick={collapse}
           className={cn(
-            "h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 absolute top-3 right-2 opacity-0 group-hover/sidebar:opacity-100 transition",
+            "h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 absolute top-3 right-3 opacity-0 group-hover/sidebar:opacity-100 transition",
             isMobile && "opacity-100"
           )}
         >
@@ -188,7 +188,7 @@ export function Navigation() {
           isMobile && "left-0 w-full"
         )}
       >
-        <nav className="bg-transparent px-3 py-2 w-full">
+        <nav className="bg-transparent px-3 py-3 w-full">
           {isCollapsed && (
             <MenuIcon
               onClick={resetWidth}
