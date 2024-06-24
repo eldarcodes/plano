@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/providers/theme-provider";
 import { ConvexProvider } from "@/providers/convex-provider";
 import { ToastProvider } from "@/providers/toast-provider";
 import { ModalProvider } from "@/providers/modal-provider";
+import { EdgeStoreProvider } from "@/lib/edgestore";
 
 import "@/styles/globals.css";
 
@@ -48,17 +49,19 @@ export default function RootLayout({
         )}
       >
         <ConvexProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <ToastProvider />
-            <ModalProvider />
+          <EdgeStoreProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <ToastProvider />
+              <ModalProvider />
 
-            {children}
-          </ThemeProvider>
+              {children}
+            </ThemeProvider>
+          </EdgeStoreProvider>
         </ConvexProvider>
       </body>
     </html>
