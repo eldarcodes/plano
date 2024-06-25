@@ -17,7 +17,7 @@ import {
   Trash,
 } from "lucide-react";
 import { useMediaQuery } from "usehooks-ts";
-import { useParams, usePathname } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import { useMutation } from "convex/react";
 import { toast } from "sonner";
 
@@ -42,6 +42,7 @@ export function Navigation() {
   const search = useSearch();
   const settings = useSettings();
   const params = useParams();
+  const router = useRouter();
 
   const [isResetting, setIsResetting] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(isMobile);
@@ -112,7 +113,9 @@ export function Navigation() {
   };
 
   const onCreate = () => {
-    const promise = create({ title: "Untitled" });
+    const promise = create({ title: "Untitled" }).then((documentId) =>
+      router.push(`/documents/${documentId}`)
+    );
 
     toast.promise(promise, {
       loading: "Creating a new note...",
@@ -185,7 +188,7 @@ export function Navigation() {
       <div
         ref={navbarRef}
         className={cn(
-          "absolute top-0 left-60 w-[calc(100%-240px)]",
+          "absolute top-0 left-60 w-[calc(100%-240px)] z-50",
           isResetting && "transition-all ease-in-out duration-300",
           isMobile && "left-0 w-full"
         )}
