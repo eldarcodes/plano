@@ -26,6 +26,7 @@ export function Navbar() {
 
       <div className="md:ml-auto md:justify-end justify-between w-full flex items-center gap-x-2">
         {isLoading && <Spinner />}
+
         {!isLoading && !isAuthenticated && (
           <>
             <SignInButton mode="modal">
@@ -46,7 +47,7 @@ export function Navbar() {
               variant="ghost"
               size="sm"
               asChild
-              className="md:block hidden"
+              className="md:flex hidden"
             >
               <Link href="/documents">Enter Plano</Link>
             </Button>
