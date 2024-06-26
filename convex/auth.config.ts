@@ -1,7 +1,7 @@
 const authConfig = {
   providers: [
     {
-      domain: "https://organic-possum-0.clerk.accounts.dev",
+      domain: process.env.CLERK_CONVEX_ISSUER_DOMAIN,
       applicationID: "convex",
     },
   ],
